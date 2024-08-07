@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    /* display and box model */
+    margin: 0;
+    padding-top: 44px;
+    padding-bottom: 44px;
+    height: 100vh;
+
+    /* color */
+    background-color: #23252C;
+
+    /* text */
+    font-family: Inter, sans-serif;
+}
+
+.container {
+    /* display and box model */
+    width: 317px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.main {
+    background-color: #1A1B21;
+}
+
+.info--image {
+    height: 317px;
+    margin: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.info--name {
+    /* display and box model */
+    margin-top: 21px;
+    /* color */
+    color: #FFFFFF;
+
+    /* text */
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.info--role {
+    /* display and box model */
+    margin-top: 6px;
+
+    /* color */
+    color: #F3BF99;
+
+    /* text */
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.info--website {
+    /* display and box model */
+    margin-top: 9px;
+
+    /* color */
+    color: #F5F5F5;
+
+    /* text */
+    font-size: 10px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.info--buttons {
+    /* display and box model */
+    display: flex;  
+    justify-content: space-between;
+}
+
+button {
+    /* display and box model */
+    height: 34px;
+
+    /* text */
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn--email {
+
+}
