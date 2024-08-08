@@ -2,8 +2,11 @@ import React from "react"
 
 export default function Footer() {
     return (
-        <div>
-            <h2>footer section</h2>
-        </div>
+        <nav className="icons">
+            <img src="../images/twitter.png"></img>
+            <img src="../images/facebook.png"></img>
+            <img src="../images/ig.png"></img>
+            <img src="../images/github.png"></img>
+        </nav>
     )
 }

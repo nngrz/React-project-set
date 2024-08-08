@@ -7,8 +7,10 @@ import Footer from "./components/Footer"
 export default function DigitalCard() {
     return (
         <div className="container">
-            <div className="main">
+            <div className="header">
                 <Info />
+            </div>
+            <div className="main">
                 <About />
                 <Interests />
             </div>

@@ -9,7 +9,7 @@ export default function Info() {
             <p className="info--website">nngrz</p>
             <div className="info--buttons">
                 <button className="btn--email"><i className="fa fa-envelope"></i> Email</button>
-                <button className="btn--linkedin"><i className="fa-brands fa-linkedin" style={{color: "#ffffff"}}></i>LinkedIn</button>
+                <button className="btn--linkedin"><i className="fa fa-linkedin-square" style={{size:"16px",color:"white"}}></i>LinkedIn</button>
             </div>
         </div>
     )

@@ -25,7 +25,7 @@ body {
     margin: auto;
 }
 
-.main {
+.header, .main {
     background-color: #1A1B21;
 }
 
@@ -74,20 +74,70 @@ body {
 }
 
 .info--buttons {
-    /* display and box model */
     display: flex;  
     justify-content: space-between;
+    margin-top: 15px;
+    margin-left: 35px;
+    margin-right: 35px;
 }
 
 button {
     /* display and box model */
+    width: 115px;
     height: 34px;
+    border-radius: 6px;
 
     /* text */
     font-size: 14px;
     font-weight: 500;
 }
 
-.btn--email {
+button > i {
+    margin-right: 8px;
+}
 
+.btn--email {
+    border: 1px solid #D1D5DB;
+}
+
+.btn--linkedin {
+    border: 0;
+
+    /* color */
+    background-color: #5093E2;
+    color: white;
+}
+
+.main {
+    /* display and box model */
+    padding: 33px 35px;
+}
+
+.main h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #F5F5F5;
+}
+
+.main p {
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #DCDCDC;
+}
+
+.interest--container {
+    margin-top: 27px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 73px;
+    background-color: #161619;
+}
+
+.icons > img {
+    width: 25px;
 }
