@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    /* display and box model */
+    margin: 0;
+    padding-top: 44px;
+    padding-bottom: 44px;
+    height: 100vh;
+
+    /* color */
+    background-color: #23252C;
+
+    /* text */
+    font-family: Inter, sans-serif;
+}
+
+.container {
+    /* display and box model */
+    width: 317px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.header, .main {
+    background-color: #1A1B21;
+}
+
+.info--image {
+    height: 317px;
+    margin: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.info--name {
+    /* display and box model */
+    margin-top: 21px;
+    /* color */
+    color: #FFFFFF;
+
+    /* text */
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.info--role {
+    /* display and box model */
+    margin-top: 6px;
+
+    /* color */
+    color: #F3BF99;
+
+    /* text */
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.info--website {
+    /* display and box model */
+    margin-top: 9px;
+
+    /* color */
+    color: #F5F5F5;
+
+    /* text */
+    font-size: 10px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.info--buttons {
+    display: flex;  
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+button {
+    /* display and box model */
+    width: 115px;
+    height: 34px;
+    border-radius: 6px;
+
+    /* text */
+    font-size: 14px;
+    font-weight: 500;
+}
+
+button > i {
+    margin-right: 8px;
+}
+
+.btn--email {
+    border: 1px solid #D1D5DB;
+}
+
+.btn--linkedin {
+    border: 0;
+
+    /* color */
+    background-color: #5093E2;
+    color: white;
+}
+
+.main {
+    /* display and box model */
+    padding: 33px 35px;
+}
+
+.main h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #F5F5F5;
+}
+
+.main p {
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #DCDCDC;
+}
+
+.interest--container {
+    margin-top: 27px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 73px;
+    background-color: #161619;
+}
+
+.icons > img {
+    width: 25px;
+}
