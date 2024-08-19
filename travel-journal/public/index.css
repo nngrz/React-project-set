@@ -110,6 +110,9 @@ body {
     justify-content: center;
     align-items: center;
     padding: 8px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer--icon {
