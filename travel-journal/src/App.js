@@ -1,6 +1,7 @@
 import React from "react"
 import Navbar from "./components/Navbar"
 import About from "./components/About"
+import Footer from "./components/Footer.js"
 import data from "./data.js"
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
             <section className="destination-list">
                 {destinations}
             </section>
+            <Footer />
         </div>
     )
 }

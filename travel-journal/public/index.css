@@ -7,6 +7,8 @@ body {
     font-family: Inter, sans-serif;
 }
 
+/* Navbar */
+
 .header--container {
     background-color: #f55a5a;
     display: flex;
@@ -26,13 +28,15 @@ body {
     font-size: 24px;
 }
 
+/* About */
+
 .destination-list {
     margin: 70px 50px;
 }
 
 .about--container {
     display: flex;
-    padding: 20px 0;
+    padding: 40px 0;
 }
 
 .about--container:not(:first-of-type) {   
@@ -42,6 +46,7 @@ body {
 .about--img {
     width: 350px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .info--container {
@@ -58,7 +63,6 @@ body {
     display: flex;
     align-items: center;
 }
-
 
 .location--icon {
     color: #f55a5a;
@@ -98,7 +102,21 @@ body {
     color: rgb(101, 100, 100);
 }
 
-hr {
-    margin: 32px 0;
-    border-top: 1px solid rgb(173, 171, 171);
+/* Footer */
+
+.footer--container {
+    background-color: #f55a5a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+.footer--icon {
+    color: #FFFFFF;
+}
+
+.footer--container > p {
+    margin: 0 0 0 5px;
+    color: #FFFFFF;
 }

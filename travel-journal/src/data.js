@@ -29,7 +29,7 @@ const Data = [
       startDate: "01 Oct, 2024",
       endDate: "18 Nov, 2024",
       description:
-        "The Geiranger Fjord is a fjord in the Sunnmøre region of Møre og Romsdal county, Norway. It is located entirely in the Stranda Municipality.",
+        "Chengdu, the heart of Sichuan province, is famous for its relaxed lifestyle, spicy cuisine, and being home to the beloved giant pandas and historic sites like the ancient Dujiangyan Irrigation System.",
       image: "Chengdu-image.jpg",
     },
   ];
