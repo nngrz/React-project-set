@@ -5,7 +5,7 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons"
 export default function About(props) {
     return ( 
         <div className="about--container">
-            <img src={`../images/${props.item.image}`} className="about--img"></img>
+            <img src={`../images/${props.item.image}`} className="about--img" />
             <div className="info--container">
                 <div className="location--container">
                     <div className="location--container--small">
