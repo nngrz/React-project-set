@@ -6,8 +6,7 @@ export default function App() {
     const [darkMode, setDarkMode] = React.useState(false)
 
     function toggleMode() {
-        console.log("clicked")
-        setDarkMode (prevState => !prevState)
+        setDarkMode(prevState => !prevState)
     }
 
     return (
