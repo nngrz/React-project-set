@@ -19,13 +19,16 @@ body {
 /* NAV styles */
 
 nav {
+    /* positioning */
+    z-index: 1;
+    /* display & box model */
     display: flex;
     align-items: center;
-    background-color: #ffffff;
-    padding: 30px 25px;
     height: 60px;
+    padding: 30px 25px;
+    /* color */
+    background-color: #ffffff;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    z-index: 1;
 }
 
 nav.dark {
@@ -57,17 +60,20 @@ nav.dark {
 }
 
 .toggler--slider {
+    /* display & box model */
     width: 25px;
     height: 13px;
-    background-color: #2B283A;
-    border-radius: 2rem;
-    margin-inline: 7px;
-    cursor: pointer;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border: 1px solid black;
     box-sizing: content-box;
+    border-radius: 2rem;
+    margin-inline: 7px;
+    /* color */
+    background-color: #2B283A;
+    border: 1px solid black;
+    /* other */
+    cursor: pointer;
 }
 
 nav.dark .toggler--slider {
@@ -78,8 +84,8 @@ nav.dark .toggler--slider {
 .toggler--slider--circle {
     height: 13px;
     width: 13px;
-    background-color: white;
     border-radius: 50%;
+    background-color: white;
 }
 
 nav.dark .toggler--slider--circle {
