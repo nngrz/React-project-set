@@ -41,8 +41,8 @@ nav.dark {
 }
 
 .nav--logo_text {
-    color: #61DAFB;
     margin-right: auto;
+    color: #61DAFB;
 }
 
 .nav--title {
@@ -61,12 +61,12 @@ nav.dark {
 
 .toggler--slider {
     /* display & box model */
-    width: 25px;
-    height: 13px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     box-sizing: content-box;
+    width: 25px;
+    height: 13px;
     border-radius: 2rem;
     margin-inline: 7px;
     /* color */
@@ -114,11 +114,11 @@ nav.dark .toggler--slider {
 
 /* MAIN styles */
 main {
+    flex: 1 1 auto;
     padding: 57px 27px;
     background-image: url("./images/react-icon-light.png"); 
     background-repeat: no-repeat;
     background-position: right center;
-    flex: 1 1 auto;
     background-color: white;
     color: #2B283A;
 }
