@@ -43,22 +43,28 @@ button:focus {
 }
 
 .new-note {
-    cursor: pointer;
-    background-color: #4A4E74;
-    border: none;
-    color: white;
-    border-radius: 3px;
+    /* display & box model */
     height: 30px;
     width: 30px;
+    border: none;
+    border-radius: 3px;
+    /* color */
+    background-color: #4A4E74;
+    color: white;
+    /* other */
+    cursor: pointer;
 }
 
 .first-note {
-    cursor: pointer;
-    background-color: #4A4E74;
-    border: none;
-    color: white;
-    border-radius: 3px;
+    /* display & box model */
     padding: 1rem;
+    border: none;
+    border-radius: 3px;
+    /* color */
+    background-color: #4A4E74;
+    color: white;
+    /* other */
+    cursor: pointer;
 }
 
 .editor {
@@ -67,19 +73,19 @@ button:focus {
 }
 
 .title {
-    overflow: hidden;
-    width: 100%;
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer;
 }
 
 .title--delete {
     display: none;
-    cursor: pointer;
-    background-color: transparent;
     border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .title:hover .title--delete {
@@ -91,11 +97,13 @@ button:focus {
 }
 
 .text-snippet {
+    /* color */
+    color: #4A4E74;
+    /* text */
     padding-inline: 5px;
     font-size: 0.8rem;
     font-weight: 400;
     line-height: 1.2rem;
-    color: #4A4E74;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -112,7 +120,6 @@ button:focus {
 
 .gutter {
     background-color: #eee;
-
     background-repeat: no-repeat;
     background-position: 50%;
 }
@@ -130,19 +137,19 @@ button:focus {
 }
 
 .no-notes {
-    width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100vh;
     background-color: whitesmoke;
 }
 
 .delete-btn {
     display: none;
-    background: none;
     border: none;
+    background: none;
 }
 
 .title:hover > .delete-btn {
@@ -172,28 +179,33 @@ button:focus {
 
 .gg-trash::after,
 .gg-trash::before {
-    content: "";
+    position: absolute;
     display: block;
     box-sizing: border-box;
-    position: absolute
+    content: "";
 }
 
 .gg-trash::after {
-    background: currentColor;
-    border-radius: 3px;
+    /* positioning */
+    top: -4px;
+    left: -5px;
+    /* display & box model */
     width: 16px;
     height: 2px;
-    top: -4px;
-    left: -5px
+    border-radius: 3px;
+    /* color */
+    background: currentColor;
 }
 
 .gg-trash::before {
+    /* positioning */
+    top: -7px;
+    left: -2px;
+    /* display & box model */
     width: 10px;
     height: 4px;
     border: 2px solid;
     border-bottom: transparent;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
-    top: -7px;
-    left: -2px
 } 
