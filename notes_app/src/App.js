@@ -24,8 +24,9 @@ export default function App() {
     const sortedNotes = notes.sort((a,b) => b.updatedAt - a.updatedAt)
 
     React.useEffect(() => {
+        // onSnapshot sets up a real-time listener, syncing local notes array with the latest data from Firestore
         const unsubscribe = onSnapshot(notesCollection, function(snapshot) {
-            // Sync up our local notes array with the snapshot data
+            // Sync up the local notes array with the snapshot data
             const notesArr = snapshot.docs.map(doc => ({
                 ...doc.data(),
                 id: doc.id
@@ -35,6 +36,7 @@ export default function App() {
         return unsubscribe
     }, [])
     
+    // if the currentNoteId is not defined, then set up the current note id to the first note in the notes array
     React.useEffect(() => {
         if (!currentNoteId) {
             setCurrentNoteId(notes[0]?.id)
@@ -42,19 +44,23 @@ export default function App() {
     }, [notes])
 
     React.useEffect(() => {
+        // if the current note is ture, set the temporary note text as the current note body
         if (currentNote) {
             setTempNoteText(currentNote.body)
         }
-    },[currentNote])
+    },[currentNote]) // to re-run the effect function everytime when the current note changes
 
     React.useEffect(() => {
+        // set the timeout by 500 millisecond
         const timeoutId = setTimeout(() => {
+            // if the temporary note text is different from the current note body, update the current note's body with the new tempNoteText
             if (tempNoteText !== currentNote.body) {
                 updateNote(tempNoteText)
             }
         }, 500)
+        // if the Editor component re-renders or unmounts before the timeout finishes, then clear the previous timer
         return () => clearTimeout(timeoutId)
-    }, [tempNoteText])
+    }, [tempNoteText]) // to re-run the effect function everytime when the temporary note text changes
     
     async function createNewNote() {
         const newNote = {
@@ -62,7 +68,9 @@ export default function App() {
             createdAt: Date.now(),
             updatedAt: Date.now()
         }
+        // addDoc generates a new note ID for the "newNote", add the "newNote" to the "notesCollection" in firebase
         const newNoteRef = await addDoc(notesCollection, newNote)
+        // set the current note id of the newly created note
         setCurrentNoteId(newNoteRef.id)
     }
     
