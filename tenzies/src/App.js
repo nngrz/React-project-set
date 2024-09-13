@@ -5,7 +5,7 @@ import Confetti from 'react-confetti'
 
 export default function App() {
     const [dice, setDice] = React.useState(allNewDice())
-    const [tenzies, setTenzies] = React.useState(false)
+    const [tenzies, setTenzies] = React.useState(false) // If all the dice values are the same, tenzies is true; otherwise, it is false.
     
     React.useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -35,7 +35,7 @@ export default function App() {
     }
 
     function rollDice() {
-        if(!tenzies) {
+        if (!tenzies) {
             setDice(oldDice => oldDice.map(die => {
                 return die.isHeld ?
                     die :
