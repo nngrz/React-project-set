@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    /* display and box model */
+    margin: 0;
+    padding: 25% 25%;
+    height: 100vh;
+    /* color */
+    background-color: #f1f4fe;
+    background-image: url(./images/shape-1.png), url(./images/shape-2.png);
+    background-repeat: no-repeat;
+    background-position: right 0, left 100%;
+    /* text */
+    font-family: Inter, sans-serif;
+}
+
+.home--container {
+    display: grid;
+}
+
