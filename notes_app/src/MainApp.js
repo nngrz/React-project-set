@@ -11,8 +11,9 @@ import {
     setDoc
 } from "firebase/firestore"
 import {notesCollection, db} from "./firebase"
+import { query, where } from "firebase/firestore"
 
-export default function MainApp() {
+export default function MainApp({ user }) {
     const [notes, setNotes] = React.useState([])
     const [currentNoteId, setCurrentNoteId] = React.useState("")
     const [tempNoteText, setTempNoteText] = React.useState("")
@@ -62,11 +63,24 @@ export default function MainApp() {
         return () => clearTimeout(timeoutId)
     }, [tempNoteText]) // to re-run the effect function everytime when the temporary note text changes
 
+    React.useEffect(() => {
+        const q = query(notesCollection, where("uid", "==", user.uid))
+        const unsubscribe = onSnapshot(q, function(snapshot) {
+            const notesArr = snapshot.docs.map(doc => ({
+                ...doc.data(),
+                id: doc.id
+            }))
+            setNotes(notesArr)
+        })
+        return unsubscribe
+    }, [user])
+
     async function createNewNote() {
         const newNote = {
             body: "# Type your markdown note's title here",
             createdAt: Date.now(),
-            updatedAt: Date.now()
+            updatedAt: Date.now(),
+            uid: user.uid
         }
         // addDoc generates a new note ID for the "newNote", add the "newNote" to the "notesCollection" in firebase
         const newNoteRef = await addDoc(notesCollection, newNote)
