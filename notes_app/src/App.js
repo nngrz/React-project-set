@@ -4,9 +4,9 @@ import Editor from "./components/Editor"
 import Split from "react-split"
 import {nanoid} from "nanoid"
 import {
-    onSnapshot, 
-    addDoc, 
-    doc, 
+    onSnapshot,
+    addDoc,
+    doc,
     deleteDoc,
     setDoc
 } from "firebase/firestore"
@@ -17,8 +17,8 @@ export default function App() {
     const [currentNoteId, setCurrentNoteId] = React.useState("")
     const [tempNoteText, setTempNoteText] = React.useState("")
 
-    const currentNote = 
-        notes.find(note => note.id === currentNoteId) 
+    const currentNote =
+        notes.find(note => note.id === currentNoteId)
         || notes[0]
 
     const sortedNotes = notes.sort((a,b) => b.updatedAt - a.updatedAt)
@@ -35,7 +35,7 @@ export default function App() {
         })
         return unsubscribe
     }, [])
-    
+
     // if the currentNoteId is not defined, then set up the current note id to the first note in the notes array
     React.useEffect(() => {
         if (!currentNoteId) {
@@ -54,14 +54,15 @@ export default function App() {
         // set the timeout by 500 millisecond
         const timeoutId = setTimeout(() => {
             // if the temporary note text is different from the current note body, update the current note's body with the new tempNoteText
-            if (tempNoteText !== currentNote.body) {
+            // NEW
+            if (currentNote && tempNoteText !== currentNote.body) {
                 updateNote(tempNoteText)
             }
         }, 500)
         // if the Editor component re-renders or unmounts before the timeout finishes, then clear the previous timer
         return () => clearTimeout(timeoutId)
     }, [tempNoteText]) // to re-run the effect function everytime when the temporary note text changes
-    
+
     async function createNewNote() {
         const newNote = {
             body: "# Type your markdown note's title here",
@@ -73,12 +74,12 @@ export default function App() {
         // set the current note id of the newly created note
         setCurrentNoteId(newNoteRef.id)
     }
-    
+
     async function updateNote(text) {
         const docRef = doc(db, "notes", currentNoteId)
         await setDoc(
-            docRef, 
-            {body: text, updatedAt: Date.now()}, 
+            docRef,
+            {body: text, updatedAt: Date.now()},
             {merge: true})
     }
 
@@ -86,15 +87,15 @@ export default function App() {
         const docRef = doc(db, "notes", noteId)
         await deleteDoc(docRef)
     }
-    
+
     return (
         <main>
         {
-            notes.length > 0 
+            notes.length > 0
             ?
-            <Split 
-                sizes={[30, 70]} 
-                direction="horizontal" 
+            <Split
+                sizes={[30, 70]}
+                direction="horizontal"
                 className="split"
             >
                 <Sidebar
@@ -104,21 +105,21 @@ export default function App() {
                     newNote={createNewNote}
                     deleteNote={deleteNote}
                 />
-                <Editor 
+                <Editor
                     tempNoteText={tempNoteText}
-                    setTempNoteText={setTempNoteText} 
+                    setTempNoteText={setTempNoteText}
                 />
             </Split>
             :
             <div className="no-notes">
                 <h1>You have no notes</h1>
-                <button 
-                    className="first-note" 
+                <button
+                    className="first-note"
                     onClick={createNewNote}
                 >
                     Create one now
                 </button>
-            </div>            
+            </div>
         }
         </main>
     )
