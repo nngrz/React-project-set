@@ -54,7 +54,6 @@ export default function App() {
         // set the timeout by 500 millisecond
         const timeoutId = setTimeout(() => {
             // if the temporary note text is different from the current note body, update the current note's body with the new tempNoteText
-            // NEW
             if (currentNote && tempNoteText !== currentNote.body) {
                 updateNote(tempNoteText)
             }
