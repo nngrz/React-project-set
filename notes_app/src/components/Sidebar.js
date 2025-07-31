@@ -22,11 +22,11 @@ export default function Sidebar(props) {
     ))
 
     return (
-        <section 
-            className="pane sidebar" 
-            style={{ 
-                display: "flex", 
-                flexDirection: "column", 
+        <section
+            className="pane sidebar"
+            style={{
+                display: "flex",
+                flexDirection: "column",
                 justifyContent: "space-between",
                 height: "100vh",
                 overflow:"hidden"
