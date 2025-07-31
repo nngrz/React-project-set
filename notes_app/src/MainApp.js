@@ -11,31 +11,32 @@ import {
     setDoc
 } from "firebase/firestore"
 import {notesCollection, db} from "./firebase"
-import { query, where } from "firebase/firestore"
 
 export default function MainApp({ user }) {
     const [notes, setNotes] = React.useState([])
     const [currentNoteId, setCurrentNoteId] = React.useState("")
     const [tempNoteText, setTempNoteText] = React.useState("")
 
-    const currentNote =
-        notes.find(note => note.id === currentNoteId)
-        || notes[0]
+    const currentNote = notes.length > 0
+        ? (notes.find(note => note.id === currentNoteId) || notes[0])
+        : null
 
     const sortedNotes = notes.sort((a,b) => b.updatedAt - a.updatedAt)
 
     React.useEffect(() => {
-        // onSnapshot sets up a real-time listener, syncing local notes array with the latest data from Firestore
-        const unsubscribe = onSnapshot(notesCollection, function(snapshot) {
-            // Sync up the local notes array with the snapshot data
+        if (!user) return
+
+        const q = query(notesCollection, where("uid", "==", user.uid))
+        const unsubscribe = onSnapshot(q, (snapshot) => {
             const notesArr = snapshot.docs.map(doc => ({
                 ...doc.data(),
                 id: doc.id
             }))
             setNotes(notesArr)
         })
+
         return unsubscribe
-    }, [])
+    }, [user])
 
     // if the currentNoteId is not defined, then set up the current note id to the first note in the notes array
     React.useEffect(() => {
@@ -63,18 +64,6 @@ export default function MainApp({ user }) {
         return () => clearTimeout(timeoutId)
     }, [tempNoteText]) // to re-run the effect function everytime when the temporary note text changes
 
-    React.useEffect(() => {
-        const q = query(notesCollection, where("uid", "==", user.uid))
-        const unsubscribe = onSnapshot(q, function(snapshot) {
-            const notesArr = snapshot.docs.map(doc => ({
-                ...doc.data(),
-                id: doc.id
-            }))
-            setNotes(notesArr)
-        })
-        return unsubscribe
-    }, [user])
-
     async function createNewNote() {
         const newNote = {
             body: "# Type your markdown note's title here",
@@ -82,10 +71,16 @@ export default function MainApp({ user }) {
             updatedAt: Date.now(),
             uid: user.uid
         }
-        // addDoc generates a new note ID for the "newNote", add the "newNote" to the "notesCollection" in firebase
-        const newNoteRef = await addDoc(notesCollection, newNote)
-        // set the current note id of the newly created note
-        setCurrentNoteId(newNoteRef.id)
+        try {
+            // NEW added for test
+            console.log("🧪 Creating note with UID:", user?.uid)
+            const newNoteRef = await addDoc(notesCollection, newNote)
+            setCurrentNoteId(newNoteRef.id)
+            console.log("Note created with ID:", newNoteRef.id)
+        } catch (err) {
+            console.error("❌ Failed to create note:", err.message)
+            alert("❌ Failed to create note: " + err.message)
+        }
     }
 
     async function updateNote(text) {
@@ -103,37 +98,37 @@ export default function MainApp({ user }) {
 
     return (
         <main>
-        {
-            notes.length > 0
-            ?
-            <Split
-                sizes={[30, 70]}
-                direction="horizontal"
-                className="split"
-            >
-                <Sidebar
-                    notes={sortedNotes}
-                    currentNote={currentNote}
-                    setCurrentNoteId={setCurrentNoteId}
-                    newNote={createNewNote}
-                    deleteNote={deleteNote}
-                />
-                <Editor
-                    tempNoteText={tempNoteText}
-                    setTempNoteText={setTempNoteText}
-                />
-            </Split>
-            :
-            <div className="no-notes">
-                <h1>You have no notes</h1>
-                <button
-                    className="first-note"
-                    onClick={createNewNote}
+            {
+                notes.length > 0
+                ?
+                <Split
+                    sizes={[30, 70]}
+                    direction="horizontal"
+                    className="split"
                 >
-                    Create one now
-                </button>
-            </div>
-        }
+                    <Sidebar
+                        notes={sortedNotes}
+                        currentNote={currentNote}
+                        setCurrentNoteId={setCurrentNoteId}
+                        newNote={createNewNote}
+                        deleteNote={deleteNote}
+                    />
+                    <Editor
+                        tempNoteText={tempNoteText}
+                        setTempNoteText={setTempNoteText}
+                    />
+                </Split>
+                :
+                <div className="no-notes">
+                    <h1>You have no notes</h1>
+                    <button
+                        className="first-note"
+                        onClick={createNewNote}
+                    >
+                        Create one now
+                    </button>
+                </div>
+            }
         </main>
     )
 }
