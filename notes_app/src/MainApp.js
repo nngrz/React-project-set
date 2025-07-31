@@ -74,11 +74,8 @@ export default function MainApp({ user }) {
             uid: user.uid
         }
         try {
-            // NEW added for test
-            console.log("🧪 Creating note with UID:", user?.uid)
             const newNoteRef = await addDoc(notesCollection, newNote)
             setCurrentNoteId(newNoteRef.id)
-            console.log("Note created with ID:", newNoteRef.id)
         } catch (err) {
             console.error("❌ Failed to create note:", err.message)
             alert("❌ Failed to create note: " + err.message)
