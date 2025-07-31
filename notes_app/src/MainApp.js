@@ -4,6 +4,8 @@ import Editor from "./components/Editor"
 import Split from "react-split"
 import {nanoid} from "nanoid"
 import {
+    query,
+    where,
     onSnapshot,
     addDoc,
     doc,
