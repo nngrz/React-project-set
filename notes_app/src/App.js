@@ -32,13 +32,7 @@ export default function App() {
                         </p>
                     </>
                 ) : (
-                    <>
-                        <Login onLogin={setUser} />
-                        <p>
-                            Don't have an account?{" "}
-                            <button onClick={() => setShowSignup(true)}>Sign up</button>
-                        </p>
-                    </>
+                    <Login onLogin={setUser} setShowSignup={setShowSignup} />
                 )}
             </div>
         )
