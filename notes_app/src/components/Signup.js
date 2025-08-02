@@ -18,21 +18,32 @@ export default function Signup({ onSignup }) {
     }
 
     return (
-        <form onSubmit={handleSignup}>
-            <h2>Sign Up</h2>
-            <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button>Sign Up</button>
-        </form>
+        <div className="login-wrapper">
+            <div className="login-box">
+                <h2 className="login-title">Sign Up</h2>
+
+                <form onSubmit={handleSignup} className="login-form">
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="login-input"
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        className="login-input"
+                    />
+                    <button type="submit" className="login-button">
+                        Sign Up
+                    </button>
+                </form>
+            </div>
+        </div>
     )
 }

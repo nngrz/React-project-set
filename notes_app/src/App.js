@@ -22,7 +22,7 @@ export default function App() {
 
     if (!user) {
         return (
-            <div style={{ padding: "2rem", textAlign: "center" }}>
+            <div className="auth-container">
                 {showSignup ? (
                     <>
                         <Signup onSignup={setUser} />

@@ -1,3 +1,5 @@
+
+/* Global Styles */
 * {
     box-sizing: border-box;
 }
@@ -12,15 +14,25 @@ button:focus {
     outline: none;
 }
 
+/* Editor Styles */
 .ql-editor p,
 .ql-editor.ql-blank::before {
     font-size: 1.3em;
     font-weight: 100;
 }
 
+/* Layout Containers */
+.split {
+    display: flex;
+}
+
 .pane {
     overflow-y: auto;
-    /* padding: 10px; */
+}
+
+.editor {
+    width: 80%;
+    height: 100vh;
 }
 
 .sidebar {
@@ -28,10 +40,17 @@ button:focus {
     height: 100vh;
 }
 
-.sidebar--note {
-    /* display: flex; */
+.no-notes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: whitesmoke;
 }
 
+/* Sidebar Components */
 .sidebar--header {
     display: flex;
     justify-content: space-around;
@@ -42,36 +61,23 @@ button:focus {
     font-size: 1.75rem;
 }
 
-.new-note {
-    /* display & box model */
+.new-note,
+.first-note {
     height: 30px;
     width: 30px;
     border: none;
     border-radius: 3px;
-    /* color */
     background-color: #4A4E74;
     color: white;
-    /* other */
     cursor: pointer;
 }
 
 .first-note {
-    /* display & box model */
+    width: auto;
     padding: 1rem;
-    border: none;
-    border-radius: 3px;
-    /* color */
-    background-color: #4A4E74;
-    color: white;
-    /* other */
-    cursor: pointer;
 }
 
-.editor {
-    width: 80%;
-    height: 100vh;
-}
-
+/* Note List Styles */
 .title {
     display: flex;
     justify-content: space-between;
@@ -81,25 +87,8 @@ button:focus {
     cursor: pointer;
 }
 
-.title--delete {
-    display: none;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.title:hover .title--delete {
-    display: block;
-}
-
-.note-summary:not(:last-of-type) {
-    border-bottom: 1px solid lightgray;
-}
-
 .text-snippet {
-    /* color */
     color: #4A4E74;
-    /* text */
     padding-inline: 5px;
     font-size: 0.8rem;
     font-weight: 400;
@@ -118,6 +107,74 @@ button:focus {
     font-weight: 700;
 }
 
+.note-summary:not(:last-of-type) {
+    border-bottom: 1px solid lightgray;
+}
+
+.delete-btn,
+.title--delete {
+    display: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.title:hover > .delete-btn,
+.title:hover .title--delete {
+    display: block;
+}
+
+/* Trash Icon (CSS GG Icons) */
+.trash-icon {
+    cursor: pointer;
+}
+
+.gg-trash {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs, 1));
+    width: 10px;
+    height: 12px;
+    border: 2px solid transparent;
+    box-shadow:
+        0 0 0 2px,
+        inset -2px 0 0,
+        inset 2px 0 0;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    margin-top: 4px;
+}
+
+.gg-trash::after,
+.gg-trash::before {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    content: "";
+}
+
+.gg-trash::after {
+    top: -4px;
+    left: -5px;
+    width: 16px;
+    height: 2px;
+    border-radius: 3px;
+    background: currentColor;
+}
+
+.gg-trash::before {
+    top: -7px;
+    left: -2px;
+    width: 10px;
+    height: 4px;
+    border: 2px solid;
+    border-bottom: transparent;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+/* Split Pane Gutter Styles */
 .gutter {
     background-color: #eee;
     background-repeat: no-repeat;
@@ -132,85 +189,13 @@ button:focus {
     cursor: col-resize;
 }
 
-.split {
-    display: flex;
+/* Auth Container Wrapper */
+.auth-container {
+    padding: 2rem;
+    text-align: center;
 }
 
-.no-notes {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    background-color: whitesmoke;
-}
-
-.delete-btn {
-    display: none;
-    border: none;
-    background: none;
-}
-
-.title:hover > .delete-btn {
-    display: block;
-}
-
-.trash-icon {
-    cursor: pointer;
-}
-
- .gg-trash {
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    transform: scale(var(--ggs,1));
-    width: 10px;
-    height: 12px;
-    border: 2px solid transparent;
-    box-shadow:
-        0 0 0 2px,
-        inset -2px 0 0,
-        inset 2px 0 0;
-    border-bottom-left-radius: 1px;
-    border-bottom-right-radius: 1px;
-    margin-top: 4px
-}
-
-.gg-trash::after,
-.gg-trash::before {
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-    content: "";
-}
-
-.gg-trash::after {
-    /* positioning */
-    top: -4px;
-    left: -5px;
-    /* display & box model */
-    width: 16px;
-    height: 2px;
-    border-radius: 3px;
-    /* color */
-    background: currentColor;
-}
-
-.gg-trash::before {
-    /* positioning */
-    top: -7px;
-    left: -2px;
-    /* display & box model */
-    width: 10px;
-    height: 4px;
-    border: 2px solid;
-    border-bottom: transparent;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-}
-
-/* Login Styles */
+/* Login & Signup Form Styles */
 .login-wrapper {
     display: flex;
     justify-content: center;
@@ -279,5 +264,8 @@ button:focus {
 .signup-text {
     color: #3b82f6;
     cursor: pointer;
+    background: none;
+    border: none;
+    font: inherit;
+    padding: 0;
 }
-
