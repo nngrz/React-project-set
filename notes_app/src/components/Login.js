@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"
 import { auth, googleProvider } from "../firebase"
+import "./login.css"
 
 export default function Login({ onLogin, setShowSignup }) {
     const [email, setEmail] = useState("")
@@ -52,13 +53,13 @@ export default function Login({ onLogin, setShowSignup }) {
                     </button>
                 </form>
 
-                <button onClick={handleGoogleLogin} className="google-button">
+                <button onClick={handleGoogleLogin} className="login-google-button">
                     Login with Google
                 </button>
 
-                <div className="signup-link">
+                <div className="login-signup-link">
                     Don’t have an account?{" "}
-                    <span className="signup-text" onClick={() => setShowSignup(true)}>
+                    <span className="login-signup-text" onClick={() => setShowSignup(true)}>
                         Sign up
                     </span>
                 </div>

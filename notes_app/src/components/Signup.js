@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../firebase"
+import "./login.css"
 
 export default function Signup({ onSignup, setShowSignup }) {
     const [email, setEmail] = useState("")
@@ -44,9 +45,9 @@ export default function Signup({ onSignup, setShowSignup }) {
                     </button>
                 </form>
 
-                <div className="signup-link">
+                <div className="login-signup-link">
                     Already have an account?{" "}
-                    <span className="signup-text" onClick={() => setShowSignup(false)}>
+                    <span className="login-signup-text" onClick={() => setShowSignup(false)}>
                         Log in
                     </span>
                 </div>
