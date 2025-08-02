@@ -24,13 +24,7 @@ export default function App() {
         return (
             <div className="auth-container">
                 {showSignup ? (
-                    <>
-                        <Signup onSignup={setUser} />
-                        <p>
-                            Already have an account?{" "}
-                            <button onClick={() => setShowSignup(false)}>Log in</button>
-                        </p>
-                    </>
+                    <Signup onSignup={setUser} setShowSignup={setShowSignup} />
                 ) : (
                     <Login onLogin={setUser} setShowSignup={setShowSignup} />
                 )}

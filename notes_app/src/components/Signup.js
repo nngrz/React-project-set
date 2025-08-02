@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../firebase"
 
-export default function Signup({ onSignup }) {
+export default function Signup({ onSignup, setShowSignup }) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -43,6 +43,13 @@ export default function Signup({ onSignup }) {
                         Sign Up
                     </button>
                 </form>
+
+                <div className="signup-link">
+                    Already have an account?{" "}
+                    <span className="signup-text" onClick={() => setShowSignup(false)}>
+                        Log in
+                    </span>
+                </div>
             </div>
         </div>
     )
