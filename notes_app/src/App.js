@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "./firebase"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
-import MainApp from "./MainApp"
+import NotesLayout from "./NotesLayout"
 
 export default function App() {
     const [user, setUser] = React.useState(null)
@@ -22,27 +22,15 @@ export default function App() {
 
     if (!user) {
         return (
-            <div style={{ padding: "2rem", textAlign: "center" }}>
+            <div className="auth-container">
                 {showSignup ? (
-                    <>
-                        <Signup onSignup={setUser} />
-                        <p>
-                            Already have an account?{" "}
-                            <button onClick={() => setShowSignup(false)}>Log in</button>
-                        </p>
-                    </>
+                    <Signup onSignup={setUser} setShowSignup={setShowSignup} />
                 ) : (
-                    <>
-                        <Login onLogin={setUser} />
-                        <p>
-                            Don't have an account?{" "}
-                            <button onClick={() => setShowSignup(true)}>Sign up</button>
-                        </p>
-                    </>
+                    <Login onLogin={setUser} setShowSignup={setShowSignup} />
                 )}
             </div>
         )
     }
 
-    return <MainApp user={user} />
+    return <NotesLayout user={user} />
 }

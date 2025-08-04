@@ -14,7 +14,7 @@ import {
 } from "firebase/firestore"
 import {notesCollection, db} from "./firebase"
 
-export default function MainApp({ user }) {
+export default function NotesLayout({ user }) {
     const [notes, setNotes] = React.useState([])
     const [currentNoteId, setCurrentNoteId] = React.useState("")
     const [tempNoteText, setTempNoteText] = React.useState("")
@@ -77,7 +77,6 @@ export default function MainApp({ user }) {
             const newNoteRef = await addDoc(notesCollection, newNote)
             setCurrentNoteId(newNoteRef.id)
         } catch (err) {
-            console.error("❌ Failed to create note:", err.message)
             alert("❌ Failed to create note: " + err.message)
         }
     }
