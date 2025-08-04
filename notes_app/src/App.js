@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "./firebase"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
-import MainApp from "./MainApp"
+import NotesLayout from "./NotesLayout"
 
 export default function App() {
     const [user, setUser] = React.useState(null)
@@ -32,5 +32,5 @@ export default function App() {
         )
     }
 
-    return <MainApp user={user} />
+    return <NotesLayout user={user} />
 }

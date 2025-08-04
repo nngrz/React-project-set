@@ -14,7 +14,7 @@ import {
 } from "firebase/firestore"
 import {notesCollection, db} from "./firebase"
 
-export default function MainApp({ user }) {
+export default function NotesLayout({ user }) {
     const [notes, setNotes] = React.useState([])
     const [currentNoteId, setCurrentNoteId] = React.useState("")
     const [tempNoteText, setTempNoteText] = React.useState("")
