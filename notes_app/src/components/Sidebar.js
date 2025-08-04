@@ -22,17 +22,8 @@ export default function Sidebar(props) {
     ))
 
     return (
-        <section
-            className="pane sidebar"
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                height: "100vh",
-                overflow:"hidden"
-            }}
-        >
-            <div style={{ overflow: "auto" }}>
+        <section className="pane sidebar">
+            <div className="sidebar-scrollable">
                 <div className="sidebar--header">
                     <h3>Notes</h3>
                     <button className="new-note" onClick={props.newNote}>+</button>
@@ -40,7 +31,7 @@ export default function Sidebar(props) {
                 {noteElements}
             </div>
 
-            <div style={{ padding: "1rem" }}>
+            <div className="sidebar-signout">
                 <Signout onSignout={() => window.location.reload()} />
             </div>
         </section>

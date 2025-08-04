@@ -10,7 +10,7 @@ export default function Editor({tempNoteText, setTempNoteText}) {
         simplifiedAutoLink: true,
         strikethrough: true,
         tasklists: true,
-    })  
+    })
 
     return (
         <section className="pane editor">

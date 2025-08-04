@@ -38,13 +38,14 @@ button:focus {
 }
 
 .sidebar {
-  width: 20%;
-  height: 100vh;
-  background-color: #1c1c2e;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
+    height: 100vh;
+    background-color: #1c1c2e;
+    color: #fff;
+    overflow: hidden;
 }
 
 .no-notes {
@@ -58,6 +59,30 @@ button:focus {
 }
 
 /* Sidebar Components */
+.sidebar-scrollable {
+    overflow: auto;
+}
+
+.sidebar-signout {
+    padding: 1rem;
+}
+
+.signout-button {
+    width: 100%;
+    padding: 0.5rem 0;
+    background-color: #eee;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.signout-button:hover {
+    background-color: #f3f3f3;
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+}
+
 .sidebar--header {
     display: flex;
     justify-content: space-around;

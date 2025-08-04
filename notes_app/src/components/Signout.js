@@ -14,18 +14,7 @@ export default function Signout({ onSignout }) {
     }
 
     return (
-        <button
-            onClick={handleSignout}
-            style={{
-                width: "100%",
-                padding: "0.5rem 0",
-                backgroundColor: "#eee",
-                color: "#333",
-                border: "1px solid #ccc",
-                borderRadius: "4px",
-                cursor: "pointer"
-            }}
-        >
+        <button className="signout-button" onClick={handleSignout}>
             Sign Out
         </button>
     )
