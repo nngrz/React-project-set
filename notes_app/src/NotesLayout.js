@@ -109,7 +109,6 @@ export default function NotesLayout({ user }) {
                 body: JSON.stringify(logPayload)
             })
             const result = await response.json()
-            console.log("Backend logNote response:", result)
         } catch (err) {
             console.error("Failed to send note to backend:", err)
         }

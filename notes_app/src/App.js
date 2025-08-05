@@ -18,14 +18,6 @@ export default function App() {
         return unsubscribe
     }, [])
 
-    // 🔧 Ping backend just for debugging
-    React.useEffect(() => {
-        fetch("http://localhost:3001/ping")
-            .then(res => res.text())
-            .then(data => console.log("Ping from backend:", data))
-            .catch(err => console.error("Backend not reachable", err))
-    }, [])
-
     if (loading) return <h2>Loading...</h2>
 
     if (!user) {
