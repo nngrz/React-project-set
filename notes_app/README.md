@@ -37,7 +37,7 @@ You’ll need Firebase credentials
 npm start
 ```
 
-## How to Start the Backend Locally (Express + Node.js)
+## Local Development
 
 **1. Navigate to the backend folder**
 ``` bash
@@ -68,43 +68,11 @@ npm run build
 **3. Drag and drop the build/ folder into the window to deploy.**
 
 ### Backend (Railway)
-**1. Push notes_app/backend/ to GitHub.**
 
-**2. Go to https://railway.app → “New Project” → “Deploy from GitHub”.**
+Continous Deployment is set up on every push to branch "backend". The express app located in `notes_app/backend/` is pushed to Railway.
 
-**3. Set the root directory as:** `notes_app/backend`
-
-**4. In index.js, use:**
-```bash
-const PORT = process.env.PORT || 3001;
-```
-**5. Click Generate Domain, then update the frontend .env or Netlify settings with:**
-```bash
-REACT_APP_BACKEND_URL=https://your-backend.up.railway.app
-```
 
 ## Updates
-
-### Backend Deployment via Railway (Updated: August 6, 2025)
-
-The custom Express backend was deployed to Railway, enabling the app to function in production without relying on a local server.
-
-**Purpose:**
-
-- To make the backend accessible from the live Netlify frontend
-- To support backend features like logging and extensibility in a real environment
-
-**What was added:**
-
-- Updated backend/index.js to use process.env.PORT || 3001 for compatibility with Railway's dynamic ports
-- Generated a public Railway service domain to receive API calls from the React frontend
-- Set the backend URL in .env using REACT_APP_BACKEND_URL
-
-**Features:**
-
-- Backend is now live and reachable from deployed React frontend
-- Route POST /logNote now functions in production
-- The React app gracefully falls back to localhost during development
 
 ### Express Backend Integration (Updated: Augues 5, 2025)
 
