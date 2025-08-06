@@ -58,14 +58,16 @@ npm run dev
 
 ### Frontend (Netlify)
 
-**1. In terminal, run:**
+**1. This REACT_APP_BACKEND_URL needs to be set up in the .env file in the Frontend -> Deployment**, before run `npm run build`.
+
+**2. In terminal, run:**
 ```bash
 npm run build
 ```
 
-**2.Go to [Netlify]**
+**3.Go to [Netlify]**
 
-**3. Drag and drop the build/ folder into the window to deploy.**
+**4. Drag and drop the build/ folder into the window to deploy.**
 
 ### Backend (Railway)
 
