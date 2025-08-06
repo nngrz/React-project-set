@@ -82,11 +82,37 @@ export default function NotesLayout({ user }) {
     }
 
     async function updateNote(text) {
+        const updatedAt = Date.now()
         const docRef = doc(db, "notes", currentNoteId)
+
+        // Update in Firestore
         await setDoc(
             docRef,
             {body: text, updatedAt: Date.now()},
-            {merge: true})
+            {merge: true}
+        )
+
+        // Send to backend
+        const logPayload = {
+            id: currentNoteId,
+            body: text,
+            updatedAt,
+            uid: user.uid
+        }
+
+        try {
+            const backendURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001"
+            const response = await fetch(`${backendURL}/logNote`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(logPayload)
+            })
+            const result = await response.json()
+        } catch (err) {
+            console.error("Failed to send note to backend:", err)
+        }
     }
 
     async function deleteNote(noteId) {
