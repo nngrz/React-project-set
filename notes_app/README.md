@@ -76,7 +76,7 @@ Continous Deployment is set up on every push to branch "backend". The express ap
 
 ## Updates
 
-### Express Backend Integration (Updated: Augues 5, 2025)
+### Express Backend Integration (Updated: Aug 5, 2025)
 
 A custom Node.js + Express backend was added to extend the app beyond Firebase.
 
@@ -98,7 +98,7 @@ A custom Node.js + Express backend was added to extend the app beyond Firebase.
 - Firebase remains the source of truth for authentication and data
 - Backend functionality is optional — app still works without it
 
-### Authentication (Updated: July 3, 2025)
+### Authentication (Updated: Aug 3, 2025)
 
 Users must sign up or log in to access the app.
 
