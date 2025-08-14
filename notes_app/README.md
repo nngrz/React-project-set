@@ -60,6 +60,9 @@ npm run dev
 
 **1. This REACT_APP_BACKEND_URL needs to be set up in the .env file in the Frontend -> Deployment**, before run `npm run build`.
 
+This variable must point to your Railway backend URL.
+You can find this URL by going to your Railway project dashboard → selecting your backend service → and copying the “Deployments” production URL.
+
 **2. In terminal, run:**
 ```bash
 npm run build
