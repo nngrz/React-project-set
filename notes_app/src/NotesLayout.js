@@ -146,7 +146,7 @@ export default function NotesLayout({ user }) {
                 <div className="no-notes">
                     <h1>You have no notes</h1>
                     <button
-                        className="first-note"
+                        className="create-btn"
                         onClick={createNewNote}
                     >
                         Create one now

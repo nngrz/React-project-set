@@ -4,16 +4,19 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #0f0f1c;
 }
 
 .login-box {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 2rem;
     width: 90%;
     max-width: 400px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .login-title {
@@ -37,13 +40,17 @@
 }
 
 .login-button {
-    background: linear-gradient(to right, #a855f7, #3b82f6);
+    background-color: #3B82F6;
     color: white;
     padding: 0.75rem 1rem;
     border: none;
     border-radius: 2rem;
     font-size: 1rem;
     cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #2563eb;
 }
 
 .login-google-button {

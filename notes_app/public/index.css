@@ -7,8 +7,14 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Karla', sans-serif;
-    background-color: #0f0f1c;
-    color: #111;
+    min-height: 100vh;
+
+    /* Full-page background image */
+    background-image: url("/login-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 button:focus {
@@ -43,19 +49,39 @@ button:focus {
     justify-content: space-between;
     width: 20%;
     height: 100vh;
-    background-color: #1c1c2e;
-    color: #fff;
+    background-color: #fff;
     overflow: hidden;
 }
 
 .no-notes {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1rem;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.no-notes h1 {
+  font-size: 2rem;
+  color: #111;
+}
+
+.create-btn {
+  background-color: #3B82F6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.create-btn:hover {
+  background-color: #2563EB;
 }
 
 /* Sidebar Components */
@@ -80,7 +106,7 @@ button:focus {
 
 .signout-button:hover {
     background-color: #f3f3f3;
-    box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 8px #2563EB;
 }
 
 .sidebar--header {
@@ -91,6 +117,7 @@ button:focus {
 
 .sidebar--header > h3 {
     font-size: 1.75rem;
+    color: #111
 }
 
 .new-note,
@@ -99,7 +126,7 @@ button:focus {
     width: 30px;
     border: none;
     border-radius: 3px;
-    background-color: #a855f7;
+    background-color:#3B82F6;
     color: white;
     cursor: pointer;
 }
@@ -118,7 +145,7 @@ button:focus {
 }
 
 .text-snippet {
-    color: #ccc;
+    color: #000000;
     padding-inline: 5px;
     font-size: 0.8rem;
     font-weight: 400;
@@ -129,8 +156,8 @@ button:focus {
 }
 
 .selected-note {
-    background: linear-gradient(to right, #a855f7, #3b82f6);
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    background: #3B82F6;
+    box-shadow: 0 0 10px #2563EB;
 }
 
 .selected-note .text-snippet {
@@ -138,22 +165,26 @@ button:focus {
     font-weight: 700;
 }
 
-.note-summary:not(:last-of-type) {
-    border-bottom: 1px solid lightgray;
-}
-
 .delete-btn,
 .title--delete {
     display: none;
     border: none;
-    color: white;
     background: none;
     cursor: pointer;
 }
 
-.title:hover > .delete-btn,
-.title:hover .title--delete {
+/* Show white delete button for selected note */
+.selected-note .delete-btn,
+.selected-note .title--delete {
     display: block;
+    color: white;
+}
+
+/* Show black delete button on hover for non-selected notes */
+.title:hover:not(.selected-note) .delete-btn,
+.title:hover:not(.selected-note) .title--delete {
+    display: block;
+    color: black;
 }
 
 /* Trash Icon (CSS GG Icons) */
