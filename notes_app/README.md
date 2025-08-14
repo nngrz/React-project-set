@@ -37,7 +37,7 @@ You’ll need Firebase credentials
 npm start
 ```
 
-## How to Start the Backend (Express + Node.js)
+## Local Development
 
 **1. Navigate to the backend folder**
 ``` bash
@@ -54,13 +54,37 @@ npm install
 npm run dev
 ```
 
+## Deployment
+
+### Frontend (Netlify)
+
+**1. This REACT_APP_BACKEND_URL needs to be set up in the .env file in the Frontend -> Deployment**, before run `npm run build`.
+
+This variable must point to your Railway backend URL.
+You can find this URL by going to your Railway project dashboard → selecting your backend service → and copying the “Deployments” production URL.
+
+**2. In terminal, run:**
+```bash
+npm run build
+```
+
+**3.Go to [Netlify]**
+
+**4. Drag and drop the build/ folder into the window to deploy.**
+
+### Backend (Railway)
+
+Continous Deployment is set up on every push to branch "backend". The express app located in `notes_app/backend/` is pushed to Railway.
+
+
 ## Updates
 
-### Express Backend Integration (Updated: Augues 5, 2025)
+### Express Backend Integration (Updated: Aug 5, 2025)
 
 A custom Node.js + Express backend was added to extend the app beyond Firebase.
 
 **Purpose:**
+
 - To receive and log note updates in real-time from the frontend
 - To provide a foundation for custom backend features like analytics, backups, and admin tools
 
@@ -77,7 +101,7 @@ A custom Node.js + Express backend was added to extend the app beyond Firebase.
 - Firebase remains the source of truth for authentication and data
 - Backend functionality is optional — app still works without it
 
-### Authentication (Updated: July 3, 2025)
+### Authentication (Updated: Aug 3, 2025)
 
 Users must sign up or log in to access the app.
 
@@ -87,6 +111,7 @@ Users must sign up or log in to access the app.
 - Google Sign-In via Firebase
 
 **Features:**
+
 - Authentication state is persisted across sessions using Firebase Auth
 - Conditional rendering is used to display:
   - `Login` / `Signup` screens when unauthenticated
